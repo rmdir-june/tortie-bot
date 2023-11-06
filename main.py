@@ -51,4 +51,4 @@ while True:
 
     print(os.environ.get('TORTIE_TOKEN'))
     client.run(os.environ.get('TORTIE_TOKEN'))
-    time.sleep(86400)
+    time.sleep(20)
