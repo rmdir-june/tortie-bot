@@ -2,6 +2,7 @@ import discord
 from discord.ext import commands
 from datetime import datetime
 import json
+import os
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -35,3 +36,5 @@ async def add(ctx, *, newalbum):
 @bot.command()
 async def current(ctx):
     await ctx.send(f'The current album is {manage_albumfile()}')
+
+bot.run(os.environ.get('TORTIE_TOKEN'))
