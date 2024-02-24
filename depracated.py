@@ -5,6 +5,10 @@ from discord.ext import commands
 import time
 import os
 
+
+#worker: python3 main.py
+
+
 try:
     def tortie_requests():
         headers = {
