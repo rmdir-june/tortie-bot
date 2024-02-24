@@ -30,7 +30,7 @@ async def add(ctx, *, newalbum):
     await ctx.send(f'{newalbum} has been added to the queue')
     with open("albums.json", "rw") as albumfile:
         data = json.load(albumfile)
-        data(current_month = newalbum)
+        data[current_month] = newalbum
 
 
 @bot.command()
