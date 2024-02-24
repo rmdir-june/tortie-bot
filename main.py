@@ -11,7 +11,7 @@ bot = commands.Bot(command_prefix='!', intents=intents)
 
 
 def manage_albumfile():
-    current_month = datetime.now().month
+    current_month = str(datetime.now().month)
     with open("albums.json", "r") as f:
         data = json.load(f)
         current_album = data[current_month]
@@ -26,7 +26,7 @@ async def on_ready():
 
 @bot.command()
 async def add(ctx, *, newalbum):
-    current_month = datetime.now().month
+    current_month = str(datetime.now().month)
     await ctx.send(f'{newalbum} has been added to the queue')
     with open("albums.json", "r") as albumfile:
         data = json.load(albumfile)
