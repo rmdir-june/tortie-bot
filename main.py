@@ -28,10 +28,12 @@ async def on_ready():
 async def add(ctx, *, newalbum):
     current_month = str(datetime.now().month)
     await ctx.send(f'{newalbum} has been added to the queue')
-    with open("albums.json", "r") as albumfile:
+    with open("albums.json", "r+") as albumfile:
         data = json.load(albumfile)
-    with open("albums.json", "w") as albumfile:
-        data[current_month] = newalbum
+        data[current_month] = str(newalbum)
+        albumfile.seek(0)
+        json.dump(data, albumfile)
+        albumfile.truncate()
 
 
 @bot.command()
